@@ -118,25 +118,34 @@
         <div class="play-button" onclick="tocarMusica()">CLIQUE PARA OUVIR 💜</div>
     </div>
 
-    <audio id="musica" loop preload="auto">
+    <audio id="musica" preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         let jaTocou = false;
+        const audio = document.getElementById("musica");
+        const tempoFim = 70; // 01:10 em segundos
+
         function tocarMusica() {
-            const audio = document.getElementById("musica");
             if (!jaTocou) {
-                audio.currentTime = 57; // Começa em 57 segundos
+                audio.currentTime = 57; // Início em 00:57
                 audio.play().then(() => {
                     jaTocou = true;
                     document.getElementById('footer').style.display = 'none';
                 }).catch(e => {
-                    console.error("Erro ao carregar musica.mp3:", e);
-                    alert("Verifique se o arquivo 'musica.mp3' está no GitHub com o nome certinho!");
+                    console.error("Erro:", e);
                 });
             }
         }
+
+        // Verifica o tempo da música constantemente
+        audio.ontimeupdate = function() {
+            if (audio.currentTime >= tempoFim) {
+                audio.pause();
+                audio.currentTime = tempoFim; // Mantém no tempo final
+            }
+        };
     </script>
 </body>
 </html>
