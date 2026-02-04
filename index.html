@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor da minha vida - Pesquisa Google</title>
+    <style>
+        body {
+            background-color: #202124;
+            color: #e8eaed;
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .google-logo {
+            width: 92px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .container { width: 100%; max-width: 650px; }
+        
+        .search-header {
+            display: flex;
+            align-items: center;
+            background: #303134;
+            border: 1px solid #5f6368;
+            border-radius: 24px;
+            padding: 10px 20px;
+            margin-bottom: 25px;
+        }
+        
+        .main-info { margin-bottom: 25px; }
+        .main-title { font-size: 32px; font-weight: 400; margin: 0; }
+        .subtitle { font-size: 14px; color: #bdc1c6; margin-top: 5px; }
+        
+        .tabs { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; }
+        .tab { border: 1px solid #5f6368; border-radius: 20px; padding: 8px 16px; font-size: 14px; white-space: nowrap; }
+        .tab.active { background-color: #303134; border-color: #8ab4f8; color: #8ab4f8; }
+        
+        .grid-elenco {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+        }
+        
+        .card { background: #303134; border-radius: 12px; overflow: hidden; cursor: pointer; transition: 0.3s; }
+        .card:hover { transform: scale(1.02); }
+        .card img { width: 100%; height: 160px; object-fit: cover; display: block; background-color: #3c4043; }
+        .card-info { padding: 10px; }
+        .name { font-size: 14px; font-weight: bold; margin: 0; display: block; }
+        .character { font-size: 12px; color: #bdc1c6; margin-top: 2px; display: block; }
+
+        /* Instrução de clique para ativar o som */
+        .click-hint {
+            font-size: 10px;
+            color: #5f6368;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onclick="tocarMusica()">
+
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png" alt="Google" class="google-logo">
+
+    <div class="container">
+        <div class="search-header">
+            <span style="color: #8ab4f8; margin-right: 15px;">🔍</span>
+            <span>amor da minha vida</span>
+        </div>
+        
+        <div class="main-info">
+            <h1 class="main-title">Amor da Minha Vida</h1>
+            <div class="subtitle">2026 • Romance • Pra Sempre</div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab">Visão geral</div>
+            <div class="tab active">Elenco</div>
+            <div class="tab">Assistir</div>
+        </div>
+        
+        <div class="grid-elenco">
+            <div class="card">
+                <img src="1.png" alt="Ela">
+                <div class="card-info"><span class="name">A gata</span><span class="character">Protagonista</span></div>
+            </div>
+            <div class="card">
+                <img src="2.png" alt="Aniversário">
+                <div class="card-info"><span class="name">Aniversariante</span><span class="character">Minha Vida</span></div>
+            </div>
+            <div class="card">
+                <img src="3.png" alt="Close">
+                <div class="card-info"><span class="name">Perfeição</span><span class="character">Dona do sorriso</span></div>
+            </div>
+            <div class="card">
+                <img src="4.png" alt="Estilosa">
+                <div class="card-info"><span class="name">Estilosa</span><span class="character">Meu amor</span></div>
+            </div>
+          
+            </div>
+        </div>
+        <p class="click-hint">clique em qualquer lugar para carregar a experiência</p>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let jaTocou = false;
+        function tocarMusica() {
+            if (!jaTocou) {
+                var audio = document.getElementById("musica");
+                audio.currentTime = 57; // Começa em 57 segundos
+                audio.play();
+                jaTocou = true;
+            }
+        }
+    </script>
+</body>
+</html>
